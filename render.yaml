@@ -1,0 +1,34 @@
+services:
+  - type: web
+    name: crowdfunding-server
+    repo: https://github.com/SeemsLikeVadim/CrowdFuningApp.git
+    branch: main
+    region: frankfurt
+    plan: free
+    env: docker
+    rootDir: ./back
+    dockerfilePath: ./Dockerfile
+    numInstances: 1
+    healthCheckPath: /
+  - type: web
+    name: crowdfunding-client
+    repo: https://github.com/SeemsLikeVadim/CrowdFuningApp.git
+    branch: main
+    region: frankfurt
+    plan: free
+    env: docker
+    rootDir: ./front
+    dockerfilePath: ./Dockerfile
+    numInstances: 1
+    healthCheckPath: /
+    envVars:
+      - key: REACT_APP
+        value: true
+      - key: NODE_ENV
+        value: development
+      - key: REACT_APP_SERVER_URL
+        value: xxx
+      - key: REACT_DOCKER_PORT
+        value: 3000
+      - key: REACT_LOCAL_PORT
+        value: 3000
