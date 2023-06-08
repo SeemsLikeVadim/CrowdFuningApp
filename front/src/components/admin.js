@@ -46,15 +46,7 @@ export default function Admin() {
               <tr>
                 <td>{user.username}</td>
                 <td>{user.email}</td>
-                <td>
-                  <button
-                    style={{color: "#FFFFFF", backgroundColor: "#c75ce7d5"}}
-                    className="btn btn-danger mx-2"
-                    onClick={() => deleteUser(user.id)}
-                  >
-                    Удалить
-                  </button>
-                </td>
+
               </tr>
             ))}
           </tbody>

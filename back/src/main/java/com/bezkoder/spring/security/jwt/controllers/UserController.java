@@ -23,13 +23,13 @@ public class UserController {
 
     @GetMapping
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<List<User>> getAllCampaigns() {
+    public ResponseEntity<List<User>> getAllUsers() {
         return ResponseEntity.ok(userRepository.findAll());
     }
 
     @DeleteMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
-    public void deleteCampaign(@PathVariable Long id) {
+    public void deleteUser(@PathVariable Long id) {
         userRepository.deleteById(id);
     }
 
