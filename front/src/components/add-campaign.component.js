@@ -23,7 +23,7 @@ export default function AddCampaign() {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    await axios.post("http://localhost:8080/api/campaigns", campaign, { headers: authHeader() });
+    await axios.post("https://crowdfunding-back.onrender.com/api/campaigns", campaign, { headers: authHeader() });
     navigate("/campaign");
   };
 

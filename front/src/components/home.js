@@ -9,7 +9,7 @@ export default function Home() {
   
   const { id } = useParams();
 
-  const API_URL = 'http://localhost:8080/api/campaigns';
+  const API_URL = 'https://crowdfunding-back.onrender.com/api/campaigns';
 
   useEffect(() => {
     loadCampaign();
@@ -23,7 +23,7 @@ export default function Home() {
   };
 
   const deleteCampaign = async (id) => {
-    await axios.delete(`http://localhost:8080/api/campaigns/${id}`, { headers: authHeader() });
+    await axios.delete(`https://crowdfunding-back.onrender.com/api/campaigns/${id}`, { headers: authHeader() });
     loadCampaign();
   };
 

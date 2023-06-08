@@ -9,7 +9,7 @@ export default function UserHome() {
   
   const { id } = useParams();
 
-  const API_URL = 'http://localhost:8080/api/campaigns';
+  const API_URL = 'https://crowdfunding-back.onrender.com/api/campaigns';
 
   useEffect(() => {
     loadCampaign();
