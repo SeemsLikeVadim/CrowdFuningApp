@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 import authHeader from "../services/auth-header";
 
-export default function Home() {
+export default function UserHome() {
   
   const [campaigns, setCampaigns] = useState([]);
   
@@ -22,18 +22,10 @@ export default function Home() {
     
   };
 
-  const deleteCampaign = async (id) => {
-    await axios.delete(`http://localhost:8080/api/campaigns/${id}`, { headers: authHeader() });
-    loadCampaign();
-  };
 
   return (
     <div className="container">
       <div className="py-4">
-      <Link style={{backgroundColor: "#c75ce7d5"}} className="btn btn-outline-dark" to="/addCampaign">
-            Начать кампанию
-          </Link>
-        <hr/>
     
         <table className="table border shadow">
           <thead>
@@ -59,17 +51,10 @@ export default function Home() {
                   <Link
                     style={{color: "#FFFFFF", backgroundColor: "#c75ce7d5"}}
                     className="btn btn-outline-primary mx-2"
-                    to={`/editCampaign/${campaign.id}`}
+                    to={`/paid`}
                   >
-                    Изменить
+                    Пожертвовать
                   </Link>
-                  <button
-                    style={{backgroundColor: "red"}}
-                    className="btn btn-danger mx-2"
-                    onClick={() => deleteCampaign(campaign.id)}
-                  >
-                    Удалить
-                  </button>
                 </td>
               </tr>
             ))}

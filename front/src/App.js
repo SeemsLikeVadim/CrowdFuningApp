@@ -14,6 +14,8 @@ import BoardAdmin from "./components/board-admin.component";
 import EditCampaign from "./components/edit-campaign.component";
 import EventBus from "./common/EventBus";
 import AddCampaign from "./components/add-campaign.component";
+import UserHome from "./components/user-home.component"
+import Paid from "./components/paid.component"
 
 
 class App extends Component {
@@ -78,9 +80,17 @@ class App extends Component {
               </li>
             )}
 
-            {currentUser && (
+            {showAdminBoard && (
               <li className="nav-item">
                 <Link to={"/campaign"} className="nav-link">
+                  Админ панель
+                </Link>
+              </li>
+            )}
+
+            {currentUser && (
+              <li className="nav-item">
+                <Link to={"/user"} className="nav-link">
                   Кампании
                 </Link>
               </li>
@@ -130,6 +140,8 @@ class App extends Component {
             <Route exact path="/editCampaign/:id" element={<EditCampaign />} />
             <Route exact path="/addCampaign" element={<AddCampaign />} />
             <Route path="/admin" element={<BoardAdmin />} />
+            <Route path="/user" element={<UserHome />} />
+            <Route path="/paid" element={<Paid />} />
           </Routes>
         </div>
       </div>
